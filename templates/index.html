@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Yield Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="background"></div>
+        <div class="background"></div>
+<div class="overlay"></div>
+
+
+        <h1>🌾 Crop Yield Predictor</h1>
+        <form method="POST" class="form">
+            <input type="number" name="rainfall" placeholder="Rainfall (mm)" step="any" required>
+            <input type="number" name="temperature" placeholder="Temperature (°C)" step="any" required>
+            <input type="number" name="pesticide" placeholder="Pesticide Use (kg/ha)" step="any" required>
+            <button type="submit">Predict</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                <h2>🌱 Predicted Yield:</h2>
+                <p>{{ prediction }} tons/hectare</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
+
