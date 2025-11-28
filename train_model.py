@@ -11,7 +11,7 @@ temp_df = pd.read_csv('data/temp.csv')
 pesticide_df = pd.read_csv('data/pesticides.csv')
 yield_df = pd.read_csv('data/yield.csv')
 
-print("✅ CSVs Loaded")
+print(" CSVs Loaded")
 
 
 # Replace '..' with NaN
@@ -78,11 +78,11 @@ model.fit(X_train, y_train)
 # Evaluate
 y_pred = model.predict(X_test)
 rmse = mean_squared_error(y_test, y_pred, squared=False)
-print(f"✅ Model trained successfully. RMSE on test set: {rmse:.2f}")
+print(f" Model trained successfully. RMSE on test set: {rmse:.2f}")
 
 
 
 # Save model and feature names
 joblib.dump((model, X.columns.tolist()), 'crop_yield_model.pkl')
 
-print("✅ Model saved as 'crop_yield_model.pkl'")
+print("Model saved as 'crop_yield_model.pkl'")
